@@ -1,4 +1,11 @@
 const { Router } = require("express");
+const {
+  getAllProducts,
+  getProductById,
+  createProducts,
+  updateProductById,
+  deleteProductById,
+} = require("../../controllers/api/product");
 
 const { Product, Category, Tag, ProductTag } = require("../../models");
 
@@ -27,7 +34,7 @@ router.delete("/:id", deleteProductById);
 // });
 
 // // create new product
-// router.post('/', (req, res) => {
+// router.post("/", (req, res) => {
 //   /* req.body should look like this...
 //     {
 //       product_name: "Basketball",
@@ -59,7 +66,7 @@ router.delete("/:id", deleteProductById);
 // });
 
 // // update product
-// router.put('/:id', (req, res) => {
+// router.put("/:id", (req, res) => {
 //   // update product data
 //   Product.update(req.body, {
 //     where: {
@@ -100,7 +107,7 @@ router.delete("/:id", deleteProductById);
 //     });
 // });
 
-// router.delete('/:id', (req, res) => {
+// router.delete("/:id", (req, res) => {
 //   // delete one product by its `id` value
 // });
 
