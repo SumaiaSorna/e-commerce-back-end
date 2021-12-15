@@ -1,4 +1,11 @@
 const { Router } = require("express");
+const {
+  getAllTags,
+  getTagById,
+  createTags,
+  updateTagById,
+  deleteTagById,
+} = require("../../controllers/api/tags");
 
 const { Tag, Product, ProductTag } = require("../../models");
 

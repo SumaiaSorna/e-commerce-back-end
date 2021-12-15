@@ -1,5 +1,3 @@
-const res = require("express/lib/response");
-
 const getAllProducts = (req, res) => {
   // find all products
   // be sure to include its associated Category and Tag data
