@@ -38,6 +38,7 @@ const schema = {
       model: "category",
       key: "id",
     },
+    onDelete: "CASCADE",
   },
 };
 
@@ -49,7 +50,6 @@ const options = {
   modelName: "product",
 };
 
-// set up fields and rules for Product model
 Product.init(schema, options);
 
 module.exports = Product;

@@ -1,16 +1,25 @@
-const getAllProducts = (req, res) => {
-  // find all products
-  // be sure to include its associated Category and Tag data
-  res.send("");
+const { Product, ProductTag } = require("../../models");
+const { logError } = require("../../utils/logger");
+
+const getAllProducts = async (req, res) => {
+  try {
+    const allProducts = await Product.findAll();
+    return res.json({ success: true, data: allProducts });
+  } catch (error) {
+    logError("GET All Products", error.message);
+    return res
+      .status(500)
+      .json({ success: false, error: "Failed to send response" });
+  }
 };
 
-const getProductById = (req, res) => {
+const getProductById = async (req, res) => {
   // find a single product by its `id`
   // be sure to include its associated Category and Tag data
   res.send("");
 };
 
-const createProducts = (req, res) => {
+const createProducts = async (req, res) => {
   /* req.body should look like this...
     {
       product_name: "Basketball",
@@ -41,7 +50,7 @@ const createProducts = (req, res) => {
     });
 };
 
-const updateProductById = (req, res) => {
+const updateProductById = async (req, res) => {
   // update product data
   Product.update(req.body, {
     where: {
@@ -82,9 +91,20 @@ const updateProductById = (req, res) => {
     });
 };
 
-const deleteProductById = (req, res) => {
-  // delete one product by its `id` value
-  res.send("");
+const deleteProductById = async (req, res) => {
+  try {
+    await Product.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    return res.json({ success: true, data: "Deleted Product" });
+  } catch (error) {
+    logError("DELETE Product", error.message);
+    return res
+      .status(500)
+      .json({ success: false, error: "Failed to send response" });
+  }
 };
 
 module.exports = {

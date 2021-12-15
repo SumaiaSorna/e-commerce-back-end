@@ -19,6 +19,7 @@ app.use(routes);
 const init = async () => {
   try {
     await connection.sync({ force: false });
+    await connection.query("SET FOREIGN_KEY_CHECKS = 0");
 
     logInfo("DB connection", "Success");
 

@@ -6,7 +6,7 @@ const getAllCatagories = async (req, res) => {
     const allCategories = await Category.findAll();
     return res.json({ success: true, data: allCategories });
   } catch (error) {
-    logError("GET catagories", error.message);
+    logError("GET All Catagories", error.message);
     return res
       .status(500)
       .json({ success: false, error: "Failed to send response" });
@@ -31,18 +31,52 @@ const getCatagoriesById = async (req, res) => {
 };
 
 const createCatagories = async (req, res) => {
-  // create a new category
-  res.send("createCatagories");
+  try {
+    await Category.create(req.body);
+    return res.json({ success: true, data: "Created category" });
+    // }
+    // return res
+    //   .status(400)
+    //   .json({ success: false, error: "Please provide the required fields" });
+  } catch (error) {
+    logError("POST category", error.message);
+    return res
+      .status(500)
+      .json({ success: false, error: "Failed to send response" });
+  }
 };
 
 const updateCatagoriesById = async (req, res) => {
-  // update a category by its `id` value
-  res.send("updateCatagoriesById");
+  try {
+    // update product data
+    await Category.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+    return res.json({ success: true, data: "Update Category" });
+  } catch (error) {
+    logError("UPDATE Category", error.message);
+    return res
+      .status(500)
+      .json({ success: false, error: "Failed to send response" });
+  }
 };
 
 const deleteCatagoriesById = async (req, res) => {
-  // delete a category by its `id` value
-  res.send("deleteCatagoriesById");
+  try {
+    await Category.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    return res.json({ success: true, data: "Deleted Category" });
+  } catch (error) {
+    logError("DELETE Category", error.message);
+    return res
+      .status(500)
+      .json({ success: false, error: "Failed to send response" });
+  }
 };
 
 module.exports = {
