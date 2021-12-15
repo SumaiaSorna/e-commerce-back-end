@@ -11,8 +11,6 @@ const getAllCatagories = async (req, res) => {
       .status(500)
       .json({ success: false, error: "Failed to send response" });
   }
-  //find all categories
-  //be sure to include its associated Products
 };
 
 const getCatagoriesById = async (req, res) => {
@@ -23,9 +21,9 @@ const getCatagoriesById = async (req, res) => {
     }
     return res
       .status(404)
-      .json({ success: false, error: "Traveller does not exist" });
+      .json({ success: false, error: "Category does not exist" });
   } catch (error) {
-    logError("GET traveller by ID", error.message);
+    logError("GET Categories by ID", error.message);
     return res
       .status(500)
       .json({ success: false, error: "Failed to send response" });
