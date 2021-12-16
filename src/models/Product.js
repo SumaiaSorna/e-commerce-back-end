@@ -38,7 +38,6 @@ const schema = {
       model: "category",
       key: "id",
     },
-    onDelete: "CASCADE",
   },
 };
 
