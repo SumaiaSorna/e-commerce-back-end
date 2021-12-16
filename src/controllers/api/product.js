@@ -14,9 +14,20 @@ const getAllProducts = async (req, res) => {
 };
 
 const getProductById = async (req, res) => {
-  // find a single product by its `id`
-  // be sure to include its associated Category and Tag data
-  res.send("");
+  try {
+    const data = await Product.findByPk(req.params.id);
+    if (data) {
+      return res.json({ success: true, data });
+    }
+    return res
+      .status(404)
+      .json({ success: false, error: "Product does not exist" });
+  } catch (error) {
+    logError("GET product by ID", error.message);
+    return res
+      .status(500)
+      .json({ success: false, error: "Failed to send response" });
+  }
 };
 
 const createProducts = async (req, res) => {

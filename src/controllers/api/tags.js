@@ -14,19 +14,48 @@ const getAllTags = async (req, res) => {
 };
 
 const getTagById = async (req, res) => {
-  res.send("getTagById");
-  // find a single tag by its `id`
-  // be sure to include its associated Product data
+  try {
+    const data = await Tag.findByPk(req.params.id);
+    if (data) {
+      return res.json({ success: true, data });
+    }
+    return res
+      .status(404)
+      .json({ success: false, error: "Tag does not exist" });
+  } catch (error) {
+    logError("GET Tags by ID", error.message);
+    return res
+      .status(500)
+      .json({ success: false, error: "Failed to send response" });
+  }
 };
 
 const createTags = async (req, res) => {
-  // create a new tag
-  res.send("createTags");
+  try {
+    await Tag.create(req.body);
+    return res.json({ success: true, data: "Created tag" });
+  } catch (error) {
+    logError("POST tag", error.message);
+    return res
+      .status(500)
+      .json({ success: false, error: "Failed to send response" });
+  }
 };
 
 const updateTagById = async (req, res) => {
-  // update a tag's name by its `id` value
-  res.send("updateTagById");
+  try {
+    await Tag.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+    return res.json({ success: true, data: "Update Tag" });
+  } catch (error) {
+    logError("UPDATE Tag", error.message);
+    return res
+      .status(500)
+      .json({ success: false, error: "Failed to send response" });
+  }
 };
 
 const deleteTagById = async (req, res) => {

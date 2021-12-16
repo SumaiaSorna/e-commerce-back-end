@@ -34,10 +34,6 @@ const createCatagories = async (req, res) => {
   try {
     await Category.create(req.body);
     return res.json({ success: true, data: "Created category" });
-    // }
-    // return res
-    //   .status(400)
-    //   .json({ success: false, error: "Please provide the required fields" });
   } catch (error) {
     logError("POST category", error.message);
     return res
@@ -48,7 +44,6 @@ const createCatagories = async (req, res) => {
 
 const updateCatagoriesById = async (req, res) => {
   try {
-    // update product data
     await Category.update(req.body, {
       where: {
         id: req.params.id,
