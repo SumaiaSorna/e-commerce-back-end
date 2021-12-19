@@ -1,4 +1,4 @@
-# # e-commerce-back-end![MIT](https://img.shields.io/static/v1?label=MIT&message=License&color=critical)
+## e-commerce-back-end ![MIT](https://img.shields.io/static/v1?label=MIT&message=License&color=yellow)
 
 ![# e-commerce-back-end-gif](./assets/gif/#)
 
@@ -14,17 +14,42 @@ Click [here](#) to view deployed application on Github page.
 
 - [Description](#description)
 - [Getting Started](#getting-started)
+  - [User Story](#user-story)
+  - [Technologies Used](#technologies-used)
+  - [Packages Used](#packages-used)
   - [Installation](#installation)
   - [Launch the app](#launch-the-app)
-  - [Tests with Coverage](#tests-with-coverage)
-  - [Tests with Watch](#tests-with-watch)
+  - [Tests with Seeds](#tests-with-seeds)
 - [Link to Repository](#link-to-repository)
-- [Link to Walkthrougho Vedio](#link-to-walkthrough-vedio)
+- [Link to Walkthrough video](#link-to-walkthrough-video)
 - [Questions](#questions)
 
 ## Description
 
+E-Commerce Back End is an app to build the back end for an e-commerce site using ORM with Sequelize and MySQL.Express was used for the server.
+
 ## Getting Started
+
+### User Story
+
+```
+AS A manager at an internet retail company
+I WANT a back end for my e-commerce website that uses the latest technologies
+SO THAT my company can compete with other e-commerce companies
+```
+
+### Technologies Used
+
+- Javascript
+- Node.js
+- MySQL
+
+### Packages Used
+
+- Sequelize
+- Express
+- MySQL2
+- Dotenv
 
 ### Installation
 
@@ -41,16 +66,10 @@ npm i
 npm run start
 ```
 
-### Tests with Coverage
+### Tests with Seeds
 
 ```
-npm run test
-```
-
-### Tests with Watch
-
-```
-npm run test:watch
+npm run seed
 ```
 
 ## Questions
