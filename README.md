@@ -1,6 +1,6 @@
 ## e-commerce-back-end ![MIT](https://img.shields.io/static/v1?label=MIT&message=License&color=yellow)
 
-![# e-commerce-back-end-gif](./assets/gif/#)
+![#e-commerce-back-end-gif](./assets/gif/e-commerce-back-end.gif)
 
 ## Link to Repository
 
