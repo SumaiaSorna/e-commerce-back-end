@@ -2,7 +2,7 @@
 
 ![# e-commerce-back-end-gif](./assets/gif/#)
 
-## Deployed URL
+## Link to Repository
 
 Click [here](https://github.com/SumaiaSorna/e-commerce-back-end/tree/dev) to view deployed application on Github page.
 
