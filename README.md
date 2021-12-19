@@ -6,7 +6,7 @@
 
 Click [here](https://github.com/SumaiaSorna/e-commerce-back-end/tree/dev) to view deployed application on Github page.
 
-## Link to Demo Vedio
+## Link to Walkthrough video
 
 <a href="https://drive.google.com/drive/u/0/folders/1HbV8bT39oBvdrQvsiERSUyHzKGXUWjo8">Walkthrough Video</a>
 
